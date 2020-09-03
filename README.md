@@ -10,6 +10,12 @@ eg
 $ export PYTHONPATH=${PYTHONPATH}:${HOME}/mockbrython
 
 then running a script containing brython calls will catch syntax errors without hitting unresolved brython calls
+
 $ python devel_script.py
 
-The script can also be debugged using idle, our your IDE of choice
+
+The script can also be debugged using idle, our your IDE of choice. Events can be simulated as per the example
+
+from browser import document, html
+ev=html._EV("i0101")
+on_mouse_enter(ev)
