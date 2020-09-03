@@ -16,6 +16,9 @@ $ python devel_script.py
 
 The script can also be debugged using idle, our your IDE of choice. Events can be simulated as per the example
 
+
 from browser import document, html
+
 ev=html._EV("i0101")
+
 on_mouse_enter(ev)
