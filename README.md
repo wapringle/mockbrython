@@ -1,5 +1,6 @@
 # mockbrython
 Mock brython functions for local testing and debugging.
+
 Brython is designed to enable python as a scripting language for the Web. When developing applications it is useful to test for syntax errors and debug logic before loading web pages. This small collection of files enables this. It blanks off all the brython-specific calls to enable the python interpreter to syntax scan the script, and allows a debugger to test the logic. Obviously it doesn't do much for the web-specific part of your design, but it means that the logic is fairly sound when the pages are loaded.
 
 At first sight, this is fairly trivial, but it took some effort to get right, so I felt it worth publishing
@@ -14,11 +15,13 @@ then running a script containing brython calls will catch syntax errors without 
 $ python devel_script.py
 
 
-The script can also be debugged using idle, our your IDE of choice. Events can be simulated as per the example
+The script can also be debugged using idle, our your IDE of choice. 
 
+There is a simple example in the examples directory
+The script sample.py can be run from examples/index.html, or from the command line as
 
-from browser import document, html
+$ export PYTHONPATH=${PYTHONPATH}:${HOME}/mockbrython
 
-ev=html._EV("i0101")
+$ cd ${HOME}/mockbrython/examples ; python test.py
 
-on_mouse_enter(ev)
+This includes a simulated event (a button click)
