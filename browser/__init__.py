@@ -12,27 +12,20 @@ $ python devel_script.py
 The script can also be debugged using idle, our your IDE of choice
 """
 
-from browser.html import _htmltype
-
-class _htmltype1(dict):
-    items = []
-
-    def __le__(self, other):
-        self.items.append(other)
-
-    def __missing__(self, attr):
-        return _htmltype()
-
-    def __getattr__(self, attr):
-        return 0
-
-    def __setattr__(self, attr, value):
-        pass
+from browser.html import _htmltype, _htmltype1
 
 document = _htmltype1()
 
 def alert(*args, **kwargs):
     pass
+
+def bind(target, evt):
+    def decorator(func):
+        def wrapper(target, evt) :
+            return target.bind(func,evt)
+        return wrapper
+    return decorator
+
 
 
 
