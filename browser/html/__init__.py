@@ -62,6 +62,15 @@ class _htmltype(dict):
     def __getattr__(self, attr):
         return self
 
+    def __getitem__(self, attr):
+        return self
+
+def maketag(name):
+    return _htmltype
+
+def attribute_mapper(attr):
+    return _htmltype
+
 """ HTML4 tags """
 
 A = _htmltype

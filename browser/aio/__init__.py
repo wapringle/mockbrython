@@ -1,10 +1,10 @@
 from browser.html import _htmltype
-def ajax(method, url, format="text", headers=None, data=None, cache=False):
+async def ajax(method, url, format="text", headers=None, data=None, cache=False):
     return _htmltype()
 
-def get(url, format="text", headers=None, data=None, cache=False):
-    return _htmltype
-def post(url, format="text", headers=None, data=None):
+async def get(url, format="text", headers=None, data=None, cache=False):
+    return _htmltype()
+async def post(url, format="text", headers=None, data=None):
     return _htmltype()
     
 _event_return=_htmltype()

@@ -22,7 +22,8 @@ def alert(*args, **kwargs):
 def bind(target, evt):
     def decorator(func):
         def wrapper(target, evt) :
-            return target.bind(func,evt)
+            #return target.bind(func,evt)
+            func(evt)
         return wrapper
     return decorator
 

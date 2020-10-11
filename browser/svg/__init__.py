@@ -2,8 +2,6 @@ from browser.html import _htmltype
 
 """ SVG emulation """
 
-svg=_htmltype
-
 a=_htmltype
 altGlyph=_htmltype
 altGlyphDef=_htmltype

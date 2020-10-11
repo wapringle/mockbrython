@@ -1,14 +1,18 @@
 """Mock brython timer functions """
 
-def set_timeout(*args,**kwargs):
+def set_timeout(function,ms):
     pass
-def clear_timeout(*args,**kwargs):
+    
+def clear_timeout(timer):
     pass
-def set_interval(*args,**kwargs):
+
+def set_interval(function,ms):
+    function()
+
+def clear_interval(timer):
     pass
-def clear_interval(*args,**kwargs):
+def request_animation_frame(function):
     pass
-def request_animation_frame(*args,**kwargs):
-    pass
-def cancel_animation_frame(*args,**kwargs):
+
+def cancel_animation_frame(id):
     pass
