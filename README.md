@@ -25,5 +25,5 @@ $ cd ${HOME}/mockbrython/examples ; python test.py
 
 This includes a simulated event (a button click).
 
-The script brythontest.py contains all the sample scripts in the "Brython-specific built-in modules" from the documentation section of the Brython website and should run locally without errors be inpected with a debugger.
+The script brythontest.py contains all the sample scripts in the section "Brython-specific built-in modules" from the documentation part of the Brython website and should run locally without errors and can be inpected with a debugger.
 
