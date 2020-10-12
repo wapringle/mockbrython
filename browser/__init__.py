@@ -19,13 +19,17 @@ document = _htmltype1()
 def alert(*args, **kwargs):
     pass
 
+""" This is not what @bind does in real life. 
+    We just supply a hook that can be called to exercise the event handler
+"""
 def bind(target, evt):
     def decorator(func):
-        def wrapper(target, evt) :
-            #return target.bind(func,evt)
+        def wrapper(evt) :
             func(evt)
         return wrapper
     return decorator
+
+self=_htmltype()
 
 
 

@@ -1,3 +1,6 @@
+from browser import html
+evt=html._EV(99) # used to exercise event handlers
+
 """ browser.aio """
 
 from browser import alert, document, html, aio
@@ -84,7 +87,8 @@ def uploadfiles(event):
     for f in document["choosefiles"].files:
         ajax.file_upload("/cgi-bin/savefile.py", f,
             oncomplete=upload_ok)
-        
+
+uploadfiles(99)        
 """ browser.html """        
 # First of all, the import of some libraries
 from browser import document
@@ -448,9 +452,64 @@ def close_connection(ev):
     ws.close()
     document['openbtn'].disabled = False
 
-d=html.DIV()    
-_open(d,99)
-send(d,99)
-close_connection(d,99)
+## added calls to exercise callbacks
+    
+_open(99)
+send(99)
+close_connection(99)
+
+on_open(evt)
+on_message(evt)
+on_close(evt)
+
+
+""" browser.worker """
+
+
+"""Main script."""
+
+from browser import bind, document, worker
+
+result = document.select_one('.result')
+inputs = document.select("input")
+
+# Create a web worker, identified by a script id in this page.
+myWorker = worker.Worker("worker")
+
+@bind(inputs, "change")
+def change(evt):
+    """Called when the value in one of the input fields changes."""
+    # Send a message (here a list of values) to the worker
+    myWorker.send([x.value for x in inputs])
+
+@bind(myWorker, "message")
+def onmessage(e):
+    """Handles the messages sent by the worker."""
+    result.text = e.data
+
+# Code of the worker script:
+"""Web Worker script."""
+
+# In web workers, "window" is replaced by "self".
+from browser import bind, self
+
+@bind(self, "message")
+def message(evt):
+    """Handle a message sent by the main script.
+    evt.data is the message body.
+    """
+    try:
+        result = int(evt.data[0]) * int(evt.data[1])
+        workerResult = f'Result: {result}'
+        # Send a message to the main script.
+        # In the main script, it will be handled by the function bound to
+        # the event "message" for the worker.
+        self.send(workerResult)
+    except ValueError:
+        self.send('Please write two numbers')
+
+## exercise event handlers
+for f in change, onmessage,message:
+    f(evt)
 
 print("done")        

@@ -9,7 +9,7 @@ class _htmltype1(dict):
         return _htmltype()
 
     def __getattr__(self, attr):
-        return 0
+        return _htmltype()
 
     def __setattr__(self, attr, value):
         pass
@@ -211,7 +211,7 @@ PICTURE=_htmltype
 SUMMARY=_htmltype
 
 
-class _EV():
+class _EV(_htmltype):
     """ This class can create dummy events """
 
     def __init__(self, id):
