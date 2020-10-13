@@ -1,3 +1,3 @@
-from browser.html import _htmltype
+from browser.html import _mockbrython
 
-Template=_htmltype
+Template=_mockbrython

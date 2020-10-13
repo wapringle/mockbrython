@@ -1,6 +1,14 @@
 from browser import html
 evt=html._EV(99) # used to exercise event handlers
 
+
+""" Test mockbrython functionality. See how we can develop and test Brython scripts.
+    The following scripts are lifted from the section "Brython-specific built-in modules" 
+    from the documentation part of the Brython website. 
+    I have added a few calls to exercise event handlers. Otherwise the are unchanged. 
+    They should run with all Brython-specific parts dummied out.
+"""
+
 """ browser.aio """
 
 from browser import alert, document, html, aio
@@ -88,7 +96,7 @@ def uploadfiles(event):
         ajax.file_upload("/cgi-bin/savefile.py", f,
             oncomplete=upload_ok)
 
-uploadfiles(99)        
+uploadfiles(evt)  ## added
 """ browser.html """        
 # First of all, the import of some libraries
 from browser import document
@@ -154,9 +162,9 @@ print(storage['foo'])
 
 del storage['foo']
 try:
-    print(storage['foo']) # raises KeyError
+    print(storage['foo']) # raises KeyError ## added exception handler
 except KeyError as e:
-    print("Key error expected")
+    print("KeyError expected")
     
 """ browser.markdown """
 
@@ -298,8 +306,8 @@ def stop_timer(ev):
 
 doc['start'].bind('click', start_timer)
 doc['stop'].bind('click', stop_timer)
-start_timer(html._EV(99))
-stop_timer(html._EV(99))
+start_timer(evt)
+stop_timer(evt)
 
 
 from browser.timer import request_animation_frame as raf
@@ -342,9 +350,10 @@ def stop(i):
 doc['btn-animate'].bind('click', animate)
 doc['btn-stop'].bind('click', stop)
 
-animate(html._EV(99))
+## added
+animate(evt)
 draw() # added
-stop(html._EV(99))
+stop(evt)
 
 """ browser.Template """
 
@@ -454,9 +463,9 @@ def close_connection(ev):
 
 ## added calls to exercise callbacks
     
-_open(99)
-send(99)
-close_connection(99)
+_open(evt)
+send(evt)
+close_connection(evt)
 
 on_open(evt)
 on_message(evt)
@@ -511,5 +520,7 @@ def message(evt):
 ## exercise event handlers
 for f in change, onmessage,message:
     f(evt)
+    
+    
 
 print("done")        

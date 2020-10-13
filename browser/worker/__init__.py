@@ -1,4 +1,4 @@
-from browser.html import _htmltype
+from browser import _mockbrython
 
 class Worker():
     

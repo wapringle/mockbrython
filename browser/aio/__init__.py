@@ -1,13 +1,13 @@
-from browser.html import _htmltype
+from browser.html import _mockbrython
 async def ajax(method, url, format="text", headers=None, data=None, cache=False):
-    return _htmltype()
+    return _mockbrython()
 
 async def get(url, format="text", headers=None, data=None, cache=False):
-    return _htmltype()
+    return _mockbrython()
 async def post(url, format="text", headers=None, data=None):
-    return _htmltype()
+    return _mockbrython()
     
-_event_return=_htmltype()
+_event_return=_mockbrython()
 """ If you want to force """
 async def event(element, name):
     return _event_return
