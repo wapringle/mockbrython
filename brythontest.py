@@ -521,6 +521,85 @@ def message(evt):
 for f in change, onmessage,message:
     f(evt)
     
+""" browser.widgets.dialog """    
+
+from browser.widgets.dialog import InfoDialog
+
+# Info box with customized "Ok" button
+d1 = InfoDialog("Test", "Information message", ok="Got it")
+
+from browser.widgets.dialog import InfoDialog
+
+# Info box that disappears after 3 seconds
+d1 = InfoDialog("Test", "Closing in 3 seconds", remove_after=3)
+
+from browser import bind
+from browser.widgets.dialog import InfoDialog, EntryDialog
+
+d = EntryDialog("Test", "Name")
+
+@bind(d, "entry")
+def entry(ev):
+    value = d.value
+    d.close()
+    InfoDialog("Test", f"Hello, {value} !")
     
+## added
+entry(evt)
+  
+from browser import bind, html
+from browser.widgets.dialog import Dialog, EntryDialog, InfoDialog
+
+translations = {'Francais': 'Salut', 'Espanol': 'Hola', 'Italiano': 'Ciao'}
+
+d = Dialog("Test", ok_cancel=True)
+
+style = dict(textAlign="center", paddingBottom="1em")
+
+d.panel <= html.DIV("Name " + html.INPUT(), style=style)
+d.panel <= html.DIV("Language " +
+                    html.SELECT(html.OPTION(k) for k in translations),
+                      style=style)
+
+# Event handler for "Ok" button
+@bind(d.ok_button, "click")
+def ok(ev):
+    """InfoDialog with text depending on user entry, at the same position as the
+    original box."""
+    language = d.select_one("SELECT").value
+    prompt = translations[language]
+    name = d.select_one("INPUT").value
+    left, top = d.scrolled_left, d.scrolled_top
+    d.close()
+    d3 = InfoDialog("Test", f"{prompt}, {name} !", left=left, top=top)
+
+## added 
+translations[0]="test" # mockbrython hashes to 0, avoid KeyError
+ok(evt)    
+
+from browser import document, html
+from browser.widgets.menu import Menu
+
+zone = document["zone"]
+menu = Menu(zone)
+file_menu = menu.add_menu("File")
+
+save_menu = file_menu.add_menu("Save")
+choice1 = save_menu.add_menu("choice 1")
+choice1.add_item("sub-choice 1")
+choice1.add_item("sub-choice 2")
+save_menu.add_item("choice 2")
+
+file_menu.add_item("Open")
+save_menu = file_menu.add_menu("Properties")
+save_menu.add_item("size")
+save_menu.add_item("security")
+
+file_menu.add_item("Print")
+
+edit_menu = menu.add_menu("Edition")
+edit_menu.add_item("Search")
+
+
 
 print("done")        

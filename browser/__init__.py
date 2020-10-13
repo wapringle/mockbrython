@@ -23,6 +23,9 @@ class _mockbrython1(dict):
     def __setattr__(self, attr, value):
         pass
 
+    def __hash__(self):
+        return 0    
+
 class _mockbrython(dict):
     def __init__(self, *args, **kwargs):
         self.style = _mockbrython1()
@@ -73,6 +76,12 @@ class _mockbrython(dict):
 
     def __getitem__(self, attr):
         return self
+    
+    def __eq__(self,other):
+        return True 
+
+    def __hash__(self):
+        return 0    
 
 document = _mockbrython1()
 
