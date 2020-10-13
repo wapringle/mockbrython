@@ -1,5 +1,5 @@
 
-from browser import _mockbrython, _mockbrython1
+from browser import _mockbrython
 
 
 """ HTML4 tags """
@@ -98,51 +98,53 @@ UL = _mockbrython
 VAR = _mockbrython
 
 """ HTML5 tags """
-ARTICLE=_mockbrython
-ASIDE=_mockbrython
-AUDIO=_mockbrython
-BDI=_mockbrython
-CANVAS=_mockbrython
-COMMAND=_mockbrython
-DATA=_mockbrython
-DATALIST=_mockbrython
-EMBED=_mockbrython
-FIGCAPTION=_mockbrython
-FIGURE=_mockbrython
-FOOTER=_mockbrython
-HEADER=_mockbrython
-KEYGEN=_mockbrython
-MAIN=_mockbrython
-MARK=_mockbrython
-MATH=_mockbrython
-METER=_mockbrython
-NAV=_mockbrython
-OUTPUT=_mockbrython
-PROGRESS=_mockbrython
-RB=_mockbrython
-RP=_mockbrython
-RT=_mockbrython
-RTC=_mockbrython
-RUBY=_mockbrython
-SECTION=_mockbrython
-SOURCE=_mockbrython
-SUMMARY=_mockbrython
-TEMPLATE=_mockbrython
-TIME=_mockbrython
-TRACK=_mockbrython
-VIDEO=_mockbrython
-WBR=_mockbrython
+ARTICLE = _mockbrython
+ASIDE = _mockbrython
+AUDIO = _mockbrython
+BDI = _mockbrython
+CANVAS = _mockbrython
+COMMAND = _mockbrython
+DATA = _mockbrython
+DATALIST = _mockbrython
+EMBED = _mockbrython
+FIGCAPTION = _mockbrython
+FIGURE = _mockbrython
+FOOTER = _mockbrython
+HEADER = _mockbrython
+KEYGEN = _mockbrython
+MAIN = _mockbrython
+MARK = _mockbrython
+MATH = _mockbrython
+METER = _mockbrython
+NAV = _mockbrython
+OUTPUT = _mockbrython
+PROGRESS = _mockbrython
+RB = _mockbrython
+RP = _mockbrython
+RT = _mockbrython
+RTC = _mockbrython
+RUBY = _mockbrython
+SECTION = _mockbrython
+SOURCE = _mockbrython
+SUMMARY = _mockbrython
+TEMPLATE = _mockbrython
+TIME = _mockbrython
+TRACK = _mockbrython
+VIDEO = _mockbrython
+WBR = _mockbrython
 
 """ HTML5.1 tags """
 
-DETAILS=_mockbrython
-DIALOG=_mockbrython
-MENUITEM=_mockbrython
-PICTURE=_mockbrython
-SUMMARY=_mockbrython
+DETAILS = _mockbrython
+DIALOG = _mockbrython
+MENUITEM = _mockbrython
+PICTURE = _mockbrython
+SUMMARY = _mockbrython
+
 
 def maketag(name):
     return _mockbrython
+
 
 def attribute_mapper(attr):
     return _mockbrython

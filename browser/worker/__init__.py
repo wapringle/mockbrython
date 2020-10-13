@@ -1,12 +1,13 @@
 from browser import _mockbrython
 
+
 class Worker():
-    
-    def __init__(self,worker_id):
+
+    def __init__(self, worker_id):
         return None
-    
-    def bind(self,evt, function):
+
+    def bind(self, evt, function):
         pass
-        
-    def send(self,message):
+
+    def send(self, message):
         pass
