@@ -8,6 +8,8 @@ $ python devel_script.py
 
 The script can also be debugged using idle, our your IDE of choice
 """
+
+"""
 class _mockbrython1(dict):
     items = []
 
@@ -24,11 +26,13 @@ class _mockbrython1(dict):
         pass
 
     def __hash__(self):
-        return 0    
+        return 0
+
+"""
 
 class _mockbrython(dict):
     def __init__(self, *args, **kwargs):
-        self.style = _mockbrython1()
+        self.style = self #_mockbrython1()
         self.args = args
         self.kwargs = kwargs
         for k, v in kwargs.items():
@@ -76,29 +80,35 @@ class _mockbrython(dict):
 
     def __getitem__(self, attr):
         return self
-    
-    def __eq__(self,other):
-        return True 
+
+    def __eq__(self, other):
+        return True
 
     def __hash__(self):
-        return 0    
+        return 0
 
-document = _mockbrython1()
+
+document = _mockbrython()
+
 
 def alert(*args, **kwargs):
     pass
 
+
 """ This is not what @bind does in real life. 
     We just supply a hook that can be called to exercise the event handler
 """
+
+
 def bind(target, evt):
     def decorator(func):
-        def wrapper(evt) :
+        def wrapper(evt):
             func(evt)
         return wrapper
     return decorator
 
-self=_mockbrython()
+
+self = _mockbrython()
 
 
 
