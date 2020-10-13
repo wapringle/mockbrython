@@ -8,7 +8,7 @@ evt=html._EV(99) # used to exercise event handlers
     I have added a few calls to exercise event handlers. Otherwise the are unchanged. 
     They should run with all Brython-specific parts dummied out.
 """
-
+import sys
 """ browser.aio """
 
 from browser import alert, document, html, aio
@@ -25,8 +25,11 @@ async def main():
             break
         except ValueError:
             input.value = ""
+## only works with python >=3.7 
+if sys.version_info.major == 3 and sys.version_info.minor >= 7:
+    
+   aio.run(main())
 
-aio.run(main())
 
 from browser import document, html, aio
 
@@ -42,7 +45,11 @@ async def main():
     # display the image in an IMG tag
     document <= html.IMG(src=req.data)
 
-aio.run(main())
+## only works with python >=3.7 
+if sys.version_info.major == 3 and sys.version_info.minor >= 7:
+    
+   aio.run(main())
+
 
 """ browser.ajax """
 
