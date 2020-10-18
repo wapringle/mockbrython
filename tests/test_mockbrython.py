@@ -5,6 +5,7 @@ from the documentation part of the Brython website.
 I have added a few calls to exercise event handlers. Otherwise the are unchanged. 
 They should run with all Brython-specific parts dummied out.
 """
+# -*- coding: utf-8 -*-
 import sys
 import pytest
 from browser import html
@@ -558,7 +559,7 @@ def test_browser_widgets_dialog():
     from browser import bind, html
     from browser.widgets.dialog import Dialog, EntryDialog, InfoDialog
     
-    translations = {'Francais': 'Salut', 'Espanol': 'Hola', 'Italiano': 'Ciao'}
+    translations = {'Français': 'Salut', 'Español': 'Hola', 'Italiano': 'Ciao'}
     
     d = Dialog("Test", ok_cancel=True)
     
