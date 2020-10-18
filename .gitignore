@@ -1,1 +1,4 @@
+*.py~
+dist/*
+*.pyc
 __pycache__
