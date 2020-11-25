@@ -20,7 +20,7 @@ then running a script containing brython calls will catch syntax errors without 
 
 $ python devel_script.py
 
-The script can also be debugged using idle, our your IDE of choice. 
+The script can also be debugged using idle, or your IDE of choice. 
 
 There is a simple example in the examples directory.
 The script sample.py can be run from examples/index.html, or from the command line as
