@@ -89,7 +89,7 @@ class _mockbrython(dict):
 
 
 document = _mockbrython()
-
+doc = _mockbrython()
 
 def alert(*args, **kwargs):
     pass
